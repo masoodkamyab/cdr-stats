@@ -295,20 +295,11 @@ func_install_pip_deps(){
     echo "Install Pip Dependencies"
     echo "========================"
 
-    case $DIST in
-        'DEBIAN')
-            #pip now only installs stable versions by default, so we need to use --pre option
-            pip install --pre pytz
-        ;;
-        'CENTOS')
-            pip install pytz
-        ;;
-    esac
-
+    pip install --pre pytz
     echo "Install basic requirements..."
-   pip install -r /usr/src/cdr-stats/requirements/basic.txt
-   echo "Install Django requirements..."
-   pip install -r usr/src/cdr-stats/requirements/django.txt --allow-all-external --allow-unverified django-admin-tools
+    pip install -r /usr/src/cdr-stats/requirements/basic.txt
+    echo "Install Django requirements..."
+    pip install -r usr/src/cdr-stats/requirements/django.txt --allow-unverified django-admin-tools
 
     #Check Python dependencies
     func_check_dependencies
