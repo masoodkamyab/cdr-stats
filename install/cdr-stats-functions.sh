@@ -45,23 +45,23 @@ export LANG="en_US.UTF-8"
 
 # Identify Linux Distribution
 func_identify_os() {
-    if [ -f /etc/debian_version ] ; then
-        DIST='DEBIAN'
-        if [ "$(lsb_release -cs)" != "wheezy" ] && [ "$(lsb_release -cs)" != "jessie" ]; then
-            echo $SCRIPT_NOTICE
-            exit 255
-        fi
+#    if [ -f /etc/debian_version ] ; then
+#        DIST='DEBIAN'
+#       if [ "$(lsb_release -cs)" != "wheezy" ] && [ "$(lsb_release -cs)" != "jessie" ]; then
+#            echo $SCRIPT_NOTICE
+#            exit 255
+#        fi
         DEBIANCODE=$(lsb_release -cs)
-    elif [ -f /etc/redhat-release ] ; then
-        DIST='CENTOS'
-        if [ "$(awk '{print $3}' /etc/redhat-release)" != "6.2" ] && [ "$(awk '{print $3}' /etc/redhat-release)" != "6.3" ] && [ "$(awk '{print $3}' /etc/redhat-release)" != "6.4" ] && [ "$(awk '{print $3}' /etc/redhat-release)" != "6.5" ]; then
-            echo $SCRIPT_NOTICE
-            exit 255
-        fi
-    else
-        echo $SCRIPT_NOTICE
-        exit 1
-    fi
+#    elif [ -f /etc/redhat-release ] ; then
+#        DIST='CENTOS'
+#        if [ "$(awk '{print $3}' /etc/redhat-release)" != "6.2" ] && [ "$(awk '{print $3}' /etc/redhat-release)" != "6.3" ] && [ "$(awk '{print $3}' /etc/redhat-release)" != "6.4" ] && [ "$(awk '{print $3}' /etc/redhat-release)" != "6.5" ]; then
+#            echo $SCRIPT_NOTICE
+#            exit 255
+#        fi
+#    else
+#        echo $SCRIPT_NOTICE
+#        exit 1
+#    fi
 }
 
 #Function accept license
@@ -406,7 +406,7 @@ func_install_source(){
     rm -rf cdr-stats
     mkdir -p /var/log/cdr-stats
 
-    git clone -b $BRANCH git://github.com/cdr-stats/cdr-stats.git
+    git clone -b $BRANCH git://github.com/masoodkamyab/cdr-stats.git
     cd cdr-stats
 
     #Install Develop / Master
