@@ -297,9 +297,9 @@ func_install_pip_deps(){
 
     pip install --pre pytz
     echo "Install basic requirements..."
-    pip install -r /usr/src/cdr-stats/requirements/basic.txt
+    pip install -r https://raw.githubusercontent.com/masoodkamyab/cdr-stats/master/requirements/basic.txt
     echo "Install Django requirements..."
-    pip install -r usr/src/cdr-stats/requirements/django.txt --allow-unverified django-admin-tools
+    pip install -r https://raw.githubusercontent.com/masoodkamyab/cdr-stats/master/requirements/django.txt
 
     #Check Python dependencies
     func_check_dependencies
